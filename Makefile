@@ -1,5 +1,5 @@
-SRCSERVER			= ft_printf.c	server.c	minitalk_utils.c
-SRCCLIENT			= ft_printf.c	client.c	minitalk_utils.c
+SRCSERVER			= ft_printf.c	server.c
+SRCCLIENT			= ft_printf.c	client.c
 
 CC				= gcc
 RM				= rm -f

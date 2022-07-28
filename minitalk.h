@@ -23,7 +23,7 @@ int		type_srch(va_list vag, char str, int a);
 int		ft_putchar(char c);
 int		ft_putnbr_unsgnd(unsigned int n);
 int		ft_putnbr(int n);
-int		ft_atoi(const char *s);
+int		ft_atoi(char *s);
 void	set_bit(int x);
 void	ft_take(int pid, int s);
 int		ft_putstr(char *s);

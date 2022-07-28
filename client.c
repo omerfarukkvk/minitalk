@@ -6,11 +6,21 @@
 /*   By: okavak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:20:21 by okavak            #+#    #+#             */
-/*   Updated: 2022/07/27 13:20:23 by okavak           ###   ########.fr       */
+/*   Updated: 2022/07/28 14:56:55 by okavak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+int	ft_atoi(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (*s)
+		i = (i * 10) + (*s - '0');
+	return (i);
+}
 
 void	ft_take(pid_t pid, int c)
 {
