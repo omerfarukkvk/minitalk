@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: okavak <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 13:21:04 by okavak            #+#    #+#             */
-/*   Updated: 2022/07/27 13:21:05 by okavak           ###   ########.fr       */
+/*   Created: 2022/05/26 13:11:12 by okavak            #+#    #+#             */
+/*   Updated: 2022/06/03 03:51:21 by okavak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <signal.h>
+# include <stdlib.h>
 
-int		ft_printf(const	char *s, ...);
-int		type_srch(va_list vag, char str, int a);
-int		ft_putchar(char c);
-int		ft_putnbr_unsgnd(unsigned int n);
-int		ft_putnbr(int n);
-int		ft_atoi(char *s);
-void	set_bit(int x);
-void	ft_take(int pid, int s);
-int		ft_putstr(char *s);
-void	set_bit(int x);
-void	sgl_catch(int x);
+int			ft_printf(const char *str, ...);
+int			ft_check(va_list args, char letter);
+int			ft_putchar(int c);
+int			ft_putstr(char *s);
+int			ft_printnumb(int n);
+int			ft_printunumb(unsigned int n);
+char		*ft_itoa(int n);
+int			puthex(unsigned long p, char *base, int cheker, int baselen);
 
 #endif

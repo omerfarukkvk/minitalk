@@ -1,36 +1,36 @@
-SRCSERVER			= ft_printf.c	server.c
-SRCCLIENT			= ft_printf.c	client.c
+NAMESERVER = server
+NAMECLIENT = client
+LIB = ./ft_printf/libftprintf.a
+SRCSERVER = server.c
+SRCCLIENT = client.c
+FLAGS = -Wall -Wextra -Werror
+CC = gcc
+OBJSERVER = $(SRCSERVER:.c=.o)
+OBJCLIENT = $(SRCCLIENT:.c=.o)
 
-CC				= gcc
-RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+all : $(LIB) $(NAMESERVER) $(NAMECLIENT)
 
-OBJSERVER		= $(SRCSERVER:.c=.o)
+$(LIB):
+	make -C ./ft_printf
 
-OBJSCLIENT 		= $(SRCCLIENT:.c=.o)
+$(NAMESERVER) : $(OBJSERVER)
+	$(CC) $(OBJSERVER) -o $(NAMESERVER) $(LIB)
 
-NAME			= minitalk.a
-
-all:			$(NAME)
-
-$(NAME): server client $(OBJSERVER) $(OBJSCLIENT)
-		
-server: 
-		$(CC) -o server $(SRCSERVER) $(CFLAGS)
-
-client: 
-		$(CC) -o client $(SRCCLIENT) $(CFLAGS)
+$(NAMECLIENT) : $(OBJCLIENT)
+	$(CC) $(OBJCLIENT) -o $(NAMECLIENT) $(LIB)
 
 clean:
-				$(RM) $(OBJSERVER) $(OBJSCLIENT)
+	rm -rf $(OBJSERVER) $(OBJCLIENT)
 
-fclean:			clean
-				$(RM) server
-				$(RM) client
+fclean: clean
+	rm -rf $(NAMESERVER) $(NAMECLIENT)
 
-re:				fclean $(NAME)
+ffclean: fclean
+	make fclean -C ./ft_printf
 
-norm:			
-				norminette *.[ch]
+.c.o:
+	$(CC) $(FLAGS) -c $^ -o $@
 
-.PHONY:			all clean fclean re norm
+re:fclean all
+
+.PHONY : re fclean clean all ffclean

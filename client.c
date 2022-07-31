@@ -18,20 +18,20 @@ int	ft_atoi(char *s)
 
 	i = 0;
 	while (*s)
-		i = (i * 10) + (*s - '0');
+		i = (i * 10) + (*s++ - '0');
 	return (i);
 }
 
 void	ft_take(pid_t pid, int c)
 {
 	int				n;
-	int				byt;
+	int				bit;
 	unsigned char	ch;
 
 	ch = c;
-	byt = 8;
+	bit = 8;
 	n = 128;
-	while (byt--)
+	while (bit--)
 	{
 		if (ch / n)
 		{
@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		ft_printf("%s", "Wrong!!!");
+		ft_printf("Wrong!");
 		return (0);
-	}
+	}	
 }

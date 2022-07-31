@@ -38,7 +38,7 @@ void	sgl_catch(int x)
 
 int	main(void)
 {
-	ft_printf("PID: %u\n", getpid());
+	ft_printf("PID: %d\n", getpid());
 	signal(SIGUSR1, sgl_catch);
 	signal(SIGUSR2, sgl_catch);
 	while (1)
