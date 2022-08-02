@@ -16,17 +16,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <signal.h>
-
-int		ft_printf(const	char *s, ...);
-int		type_srch(va_list vag, char str, int a);
-int		ft_putchar(char c);
-int		ft_putnbr_unsgnd(unsigned int n);
-int		ft_putnbr(int n);
-int		ft_atoi(char *s);
-void	set_bit(int x);
-void	ft_take(int pid, int s);
-int		ft_putstr(char *s);
-void	set_bit(int x);
-void	sgl_catch(int x);
+# include "./ft_printf/ft_printf.h"
 
 #endif

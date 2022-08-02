@@ -28,9 +28,6 @@ fclean: clean
 ffclean: fclean
 	make fclean -C ./ft_printf
 
-.c.o:
-	$(CC) $(FLAGS) -c $^ -o $@
-
 re:fclean all
 
 .PHONY : re fclean clean all ffclean

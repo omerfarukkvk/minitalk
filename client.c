@@ -12,6 +12,12 @@
 
 #include "minitalk.h"
 
+void	ft_success(int signal)
+{
+	if (signal == SIGUSR1)
+		ft_printf("\x1b[32mProcess Successful\x1b[0m  \n");
+}
+
 int	ft_atoi(char *s)
 {
 	int	i;
@@ -47,6 +53,7 @@ void	ft_take(pid_t pid, int c)
 
 int	main(int ac, char **av)
 {
+	int		byt;
 	int		pid;
 	int		i;
 	char	*msg;
@@ -56,6 +63,7 @@ int	main(int ac, char **av)
 	{
 		pid = ft_atoi(av[1]);
 		msg = av[2];
+		signal(SIGUSR1, ft_success);
 		while (msg[i])
 		{
 			ft_take(pid, msg[i]);
@@ -63,8 +71,11 @@ int	main(int ac, char **av)
 		}
 	}
 	else
+		return (ft_printf("\x1b[31mWrong!\x1b[0m  \n"));
+	byt = 8;
+	while (byt--)
 	{
-		ft_printf("Wrong!");
-		return (0);
-	}	
+		kill(pid, SIGUSR2);
+		usleep(50);
+	}
 }
