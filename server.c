@@ -18,6 +18,7 @@ void	set_bit(int x, siginfo_t *info, void *unused)
 	static int	bit = 7;
 	static int	set = 0;
 
+	(void)unused;
 	sig = 0;
 	if (x == SIGUSR1)
 		sig = 1;
